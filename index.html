@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Indovinello</title>
+	<link href='http://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">// <![CDATA[
+	google.load("jquery", "1");
+	google.setOnLoadCallback(function() {
+		space = (document.documentElement.clientWidth - 325) / 2 - 308;
+		lspace = space - 15;
+		$("#zat").css("margin-left", space).addClass("clicca")
+			.click(function() {
+				$(this).removeClass("clicca").off("click");
+				$(".inizia").slideUp(function() { $(this).remove(); });
+				$("#zat").animate({left: -lspace}, "slow");
+				$("#button").slideDown("slow");
+				init();
+			});
+		$("#game").css("margin-top", (document.documentElement.clientHeight - 350) / 2);
+		$("#dialog").css({"left" : (document.documentElement.clientWidth - 465) / 2,
+		"top" : (document.documentElement.clientHeight - 350) / 4});
+		$("#button").click(function() { parti(); });
+	});
+	// ]]></script>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<div id="dialog"></div>
+	<div id="game">
+		<div id="sx">
+			<div class="pec"></div>
+			<div class="lup"></div>
+			<div class="cav"></div>
+		</div>
+		<div id="zat"><span class="inizia">start game</span></div>
+		<div id="dx">
+			<div class="pec"></div>
+			<div class="lup"></div>
+			<div class="cav"></div>
+		</div>
+		<div id="button">Vai!</div>
+	</div>
+</body>
+</html>
