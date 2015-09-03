@@ -24,17 +24,17 @@ function restoreClick(t) {
 function checkVinto() {
 	if ($("#sx img").length < 1 && $("#zat img").length < 2) {
 		$("#game img").removeClass("clicca").off("click");
-		$("#zat").animate({left: 0}, "slow").append('<span class="inizia">hai vinto!</span>');
-		errore("Bravo, hai vinto! E hai utilizzato " + conta + " viaggi.", 10);
+		$("#zat").animate({left: 0}, "slow").append('<span class="inizia">you won!</span>');
+		errore("Good job, you won! And you used " + conta + " trips.", 10);
 		$("#button").slideUp("fast");
 	}
 }
 
 function parti() {
 	check();
-	if (ZE) return errore("Devi portare qualcosa!", 2);
-	if (PL) return errore("Il lupo mangia la pecora!", 2);
-	if (PC) return errore("La pecora mangia il cavolo!", 2);
+	if (ZE) return errore("You must carry something!", 2);
+	if (PL) return errore("The wolf eats the sheep!", 2);
+	if (PC) return errore("The sheep eats the cabbage!", 2);
 	var nspace = (turn == 0) ? lspace : -lspace;
 	removeClick(turn);
 	turn = 1 - turn;
